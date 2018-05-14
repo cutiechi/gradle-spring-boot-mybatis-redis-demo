@@ -33,4 +33,12 @@ public interface UserService {
      * @return 用户
      */
     User getById (final Integer userId);
+
+    /**
+     * 修改用户
+     *
+     * @param user 用户
+     * @return 用户
+     */
+    User update (final User user);
 }

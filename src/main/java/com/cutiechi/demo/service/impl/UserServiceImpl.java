@@ -64,4 +64,16 @@ public class UserServiceImpl implements UserService {
     public User getById (Integer userId) {
         return userDao.getById(userId);
     }
+
+    /**
+     * 修改用户
+     *
+     * @param user 用户
+     * @return 用户
+     */
+    @Override
+    public User update (User user) {
+        userDao.update(user);
+        return user;
+    }
 }
