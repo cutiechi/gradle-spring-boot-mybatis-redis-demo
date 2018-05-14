@@ -5,6 +5,9 @@ import com.cutiechi.demo.model.entity.User;
 import com.cutiechi.demo.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -38,6 +41,7 @@ public class UserServiceImpl implements UserService {
      * @param user 用户
      * @return 用户
      */
+    @CachePut(cacheNames = "user", key = "#user.userId")
     @Override
     public User insert (final User user) {
         userDao.insert(user);
@@ -60,6 +64,7 @@ public class UserServiceImpl implements UserService {
      * @param userId 用户 ID
      * @return 用户
      */
+    @Cacheable(cacheNames = "user", key = "#userId")
     @Override
     public User getById (Integer userId) {
         return userDao.getById(userId);
@@ -71,6 +76,7 @@ public class UserServiceImpl implements UserService {
      * @param user 用户
      * @return 用户
      */
+    @CachePut(cacheNames = "user", key = "#user.userId")
     @Override
     public User update (User user) {
         userDao.update(user);
@@ -82,6 +88,7 @@ public class UserServiceImpl implements UserService {
      *
      * @param userId 用户 ID
      */
+    @CacheEvict(cacheNames = "user", key = "#userId")
     @Override
     public void deleteById (Integer userId) {
         userDao.deleteById(userId);
