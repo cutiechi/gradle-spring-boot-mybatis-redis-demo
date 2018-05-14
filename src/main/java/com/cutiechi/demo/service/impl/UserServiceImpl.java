@@ -7,6 +7,8 @@ import com.cutiechi.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * 用户业务逻辑实现类
  *
@@ -40,5 +42,15 @@ public class UserServiceImpl implements UserService {
     public User insert (final User user) {
         userDao.insert(user);
         return user;
+    }
+
+    /**
+     * 获取全部顾客列表
+     *
+     * @return 全部顾客列表
+     */
+    @Override
+    public List<User> listAll () {
+        return userDao.listAll();
     }
 }
