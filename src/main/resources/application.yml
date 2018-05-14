@@ -40,3 +40,10 @@ mybatis:
 
     # 枚举处理类
     default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
+
+# 日志
+logging:
+  level:
+
+    # 数据访问接口 DEBUG 级别
+    com.cutiechi.demo.dao: debug
