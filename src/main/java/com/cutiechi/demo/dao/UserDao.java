@@ -4,8 +4,11 @@ import com.cutiechi.demo.model.entity.User;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.Select;
 
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * 用户数据访问接口
@@ -14,6 +17,14 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface UserDao {
+
+    /**
+     * 获取全部顾客列表
+     *
+     * @return 全部顾客列表
+     */
+    @Select("select user_id, user_name, user_password, user_phone_number, user_gender, user_birth_date from user")
+    List<User> listAll ();
 
     /**
      * 添加用户
