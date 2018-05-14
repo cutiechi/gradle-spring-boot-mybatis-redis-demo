@@ -2,10 +2,13 @@ package com.cutiechi.demo.dao;
 
 import com.cutiechi.demo.ApplicationTests;
 import com.cutiechi.demo.model.entity.User;
+import com.cutiechi.demo.model.enumeration.UserGender;
 
 import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.time.LocalDate;
 
 /**
  * 用户数据接口测试类
@@ -36,5 +39,17 @@ class UserDaoTests extends ApplicationTests {
     @Test
     void testListAll () {
         userDao.listAll().forEach(System.out::println);
+    }
+
+    /**
+     * 测试修改用户
+     */
+    @Test
+    void testUpdate () {
+        User user = new User("super", "123456", "18845679876");
+        user.setUserId(1);
+        user.setUserGender(UserGender.Male);
+        user.setUserBirthDate(LocalDate.now());
+        userDao.update(user);
     }
 }
