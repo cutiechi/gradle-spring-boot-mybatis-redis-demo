@@ -5,6 +5,7 @@ import com.cutiechi.demo.model.entity.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import org.springframework.stereotype.Repository;
 
@@ -34,4 +35,12 @@ public interface UserDao {
     @Insert("insert into user (user_name, user_password, user_phone_number, user_gender, user_birth_date) values (#{userName}, #{userPassword}, #{userPhoneNumber}, #{userGender}, #{userBirthDate})")
     @Options(useGeneratedKeys = true, keyProperty = "userId")
     void insert (User user);
+
+    /**
+     * 修改用户
+     *
+     * @param user 用户
+     */
+    @Update("update user set user_name = #{userName}, user_password = #{userPassword}, user_phone_number = #{userPhoneNumber}, user_gender = #{userGender}, user_birth_date = #{userBirthDate}")
+    void update (User user);
 }
