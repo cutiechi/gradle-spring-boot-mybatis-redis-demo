@@ -27,5 +27,9 @@ repositories {
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
-    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('org.springframework.boot:spring-boot-starter-test') {
+        exclude module: 'junit'
+    }
+    testCompile("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testCompile("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }
