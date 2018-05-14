@@ -53,4 +53,15 @@ public class UserServiceImpl implements UserService {
     public List<User> listAll () {
         return userDao.listAll();
     }
+
+    /**
+     * 根据用户 ID 获取用户
+     *
+     * @param userId 用户 ID
+     * @return 用户
+     */
+    @Override
+    public User getById (Integer userId) {
+        return userDao.getById(userId);
+    }
 }

@@ -25,4 +25,12 @@ public interface UserService {
      * @return 全部顾客列表
      */
     List<User> listAll ();
+
+    /**
+     * 根据用户 ID 获取用户
+     *
+     * @param userId 用户 ID
+     * @return 用户
+     */
+    User getById (final Integer userId);
 }
