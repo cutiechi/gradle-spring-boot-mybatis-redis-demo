@@ -4,10 +4,13 @@ import com.cutiechi.demo.model.entity.User;
 import com.cutiechi.demo.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * 用户控制器
@@ -42,5 +45,15 @@ public class UserController {
     @PostMapping("")
     public User insert (@RequestBody final User user) {
         return userService.insert(user);
+    }
+
+    /**
+     * 获取全部顾客列表
+     *
+     * @return 全部顾客列表
+     */
+    @GetMapping("")
+    public List<User> listAll () {
+        return userService.listAll();
     }
 }
