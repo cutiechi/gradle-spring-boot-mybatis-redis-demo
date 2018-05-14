@@ -43,4 +43,13 @@ public interface UserDao {
      */
     @Update("update user set user_name = #{userName}, user_password = #{userPassword}, user_phone_number = #{userPhoneNumber}, user_gender = #{userGender}, user_birth_date = #{userBirthDate} where user_id = #{userId}")
     void update (User user);
+
+    /**
+     * 根据用户 ID 获取用户
+     *
+     * @param userId 用户 ID
+     * @return 用户
+     */
+    @Select("select user_id, user_name, user_password, user_phone_number, user_gender, user_birth_date from user where user_id = #{userId}")
+    User getById (final Integer userId);
 }
