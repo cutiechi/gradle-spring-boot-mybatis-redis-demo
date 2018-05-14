@@ -4,6 +4,7 @@ import com.cutiechi.demo.model.entity.User;
 import com.cutiechi.demo.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -70,8 +71,24 @@ public class UserController {
         return userService.getById(userId);
     }
 
+    /**
+     * 修改用户
+     *
+     * @param user 用户
+     * @return 用户
+     */
     @PutMapping("")
     public User update (@RequestBody User user) {
         return userService.update(user);
+    }
+
+    /**
+     * 根据用户 ID 删除用户
+     *
+     * @param userId 用户 ID
+     */
+    @DeleteMapping("/{userId}")
+    public void deleteById (@PathVariable final Integer userId) {
+        userService.deleteById(userId);
     }
 }
