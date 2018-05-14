@@ -21,3 +21,13 @@ spring:
 
     # 密码
     password: 123456
+
+# Mybatis 配置
+mybatis:
+  configuration:
+
+    # 下换线转为驼峰
+    map-underscore-to-camel-case: true
+
+    # 枚举处理类
+    default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
