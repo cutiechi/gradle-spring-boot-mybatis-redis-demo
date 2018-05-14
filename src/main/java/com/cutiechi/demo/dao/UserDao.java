@@ -2,11 +2,13 @@ package com.cutiechi.demo.dao;
 
 import com.cutiechi.demo.model.entity.User;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -34,7 +36,7 @@ public interface UserDao {
      */
     @Insert("insert into user (user_name, user_password, user_phone_number, user_gender, user_birth_date) values (#{userName}, #{userPassword}, #{userPhoneNumber}, #{userGender}, #{userBirthDate})")
     @Options(useGeneratedKeys = true, keyProperty = "userId")
-    void insert (User user);
+    void insert (final User user);
 
     /**
      * 修改用户
@@ -42,7 +44,7 @@ public interface UserDao {
      * @param user 用户
      */
     @Update("update user set user_name = #{userName}, user_password = #{userPassword}, user_phone_number = #{userPhoneNumber}, user_gender = #{userGender}, user_birth_date = #{userBirthDate} where user_id = #{userId}")
-    void update (User user);
+    void update (final User user);
 
     /**
      * 根据用户 ID 获取用户
@@ -52,4 +54,12 @@ public interface UserDao {
      */
     @Select("select user_id, user_name, user_password, user_phone_number, user_gender, user_birth_date from user where user_id = #{userId}")
     User getById (final Integer userId);
+
+    /**
+     * 删除用户
+     *
+     * @param userId 用户 ID
+     */
+    @Delete("delete from user where user_id = #{userId}")
+    void deleteById (final Integer userId);
 }
