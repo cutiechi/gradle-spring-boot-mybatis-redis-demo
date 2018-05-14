@@ -29,4 +29,12 @@ class UserDaoTests extends ApplicationTests {
         userDao.insert(user);
         System.out.println(user);
     }
+
+    /**
+     * 测试获取全部用户列表
+     */
+    @Test
+    void testListAll () {
+        userDao.listAll().forEach(System.out::println);
+    }
 }
