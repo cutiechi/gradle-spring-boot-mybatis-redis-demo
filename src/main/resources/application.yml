@@ -3,3 +3,21 @@ server:
 
   # 端口号码
   port: 8300
+
+# Spring 配置
+spring:
+
+  # 数据源配置
+  datasource:
+
+    # 驱动类名
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    # 连接地址
+    url: jdbc:mysql://localhost:6033/spring_boot_mybatis_redis_demo?useSSL=false
+
+    # 用户名称
+    username: root
+
+    # 密码
+    password: 123456
