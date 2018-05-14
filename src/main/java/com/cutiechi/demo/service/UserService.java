@@ -41,4 +41,11 @@ public interface UserService {
      * @return 用户
      */
     User update (final User user);
+
+    /**
+     * 根据用户 ID 删除用户
+     *
+     * @param userId 用户 ID
+     */
+    void deleteById (final Integer userId);
 }

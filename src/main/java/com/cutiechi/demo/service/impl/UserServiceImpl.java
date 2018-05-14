@@ -76,4 +76,14 @@ public class UserServiceImpl implements UserService {
         userDao.update(user);
         return user;
     }
+
+    /**
+     * 根据用户 ID 删除用户
+     *
+     * @param userId 用户 ID
+     */
+    @Override
+    public void deleteById (Integer userId) {
+        userDao.deleteById(userId);
+    }
 }
