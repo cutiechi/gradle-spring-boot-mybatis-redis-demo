@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
+import java.io.Serializable;
+
 import java.time.LocalDate;
 
 /**
@@ -19,8 +21,9 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @RequiredArgsConstructor
-public final class User {
+public final class User implements Serializable {
 
+    private static final long serialVersionUID = -496170348280590406L;
     /**
      * 用户 ID
      */
