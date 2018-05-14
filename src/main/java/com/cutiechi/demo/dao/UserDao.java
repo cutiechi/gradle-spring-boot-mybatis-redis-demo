@@ -1,5 +1,10 @@
 package com.cutiechi.demo.dao;
 
+import com.cutiechi.demo.model.entity.User;
+
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Options;
+
 import org.springframework.stereotype.Repository;
 
 /**
@@ -10,4 +15,12 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserDao {
 
+    /**
+     * 添加用户
+     *
+     * @param user 用户
+     */
+    @Insert("insert into user (user_name, user_password, user_phone_number, user_gender, user_birth_date) values (#{userName}, #{userPassword}, #{userPhoneNumber}, #{userGender}, #{userBirthDate})")
+    @Options(useGeneratedKeys = true, keyProperty = "userId")
+    void insert (User user);
 }
